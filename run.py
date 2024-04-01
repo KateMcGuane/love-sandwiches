@@ -44,7 +44,7 @@ def validate_data(values):
         [int(value) for value in values]
         if len(values) != 6:
             raise ValueError(
-                f'Exactly 6 values required, you provdied {len(values)}'
+                f'Exactly 6 values required, you provided {len(values)}'
             )
     except ValueError as e:
         print(f'Invalid data: {e}, please try again.\n')
@@ -68,13 +68,14 @@ def calculate_surplus_data(sales_row):
     Compare sales with stock and calculate the surplus for each item type.
 
     The surplus is defined as the sales figure subtracted from the stock:
-    - Positive surplus indicates waste
+    - Positive surplus indicates waste.
     - Negative surplus indicates extra made when stock was sold out.
     """
     print("Calculating surplus data...\n")
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = stock[-1]
-    print(stock_row)
+    print(f"stock row: {stock_row}")
+    print(f"sales row: {sales_row}")
 
 def main():
     """
